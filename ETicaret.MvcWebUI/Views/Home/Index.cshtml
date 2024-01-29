@@ -1,0 +1,40 @@
+﻿@using ETicaret.MvcWebUI.Models;
+@model IEnumerable<ProductModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<div class="jumbotron">
+    <div class="container-fluid">
+        <h1 class="display-3">ASANSÖRBUTİK - Kaliteli İkinci El Ürünler, Sizi Bekliyor!</h1>
+        <p class="lead">
+            ASANSÖRBUTİK'e hoş geldiniz! İhtiyaçlarınızı karşılamak ve bütçenizi dostça düşünmek için en kaliteli ikinci
+            el ürünleri sunma taahhüdümüz ile buradayız. Beklentilerinizi aşan kalitede ürünlerimiz ve müşteri
+            odaklı hizmet anlayışımızla size en iyi alışveriş deneyimini yaşatmayı amaçlıyoruz.
+        </p>
+        <hr class="my-4">
+        <p>
+            Geniş ürün yelpazemizde yüksek kaliteli ikinci el ürünleri keşfedin. 
+            ASANSÖRBUTİK, uygun fiyatlarla kaliteyi buluşturarak ikinci el alışverişinizi keyifli hale getiriyor.
+        </p>
+    </div>
+</div>
+
+
+
+<div class="container pb-5">
+    @Html.Action("GetCategories2", "Home")
+    @*@Html.Action("GetCategories", "Home")*@
+    @*@Html.Partial("_ProductList", Model)*@
+
+</div>
+
+
+
+
+
+
+

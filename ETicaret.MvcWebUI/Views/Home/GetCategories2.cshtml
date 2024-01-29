@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ETicaret.MvcWebUI.Entity.Category>
+@{
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+
+<div class="row justify-content-center">
+
+
+    <div class="card" style="width: 18rem;">
+        <a href="/Home/List" style="display: block; position: relative;">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <!-- Resim eklemek için image elemanı eklendi -->
+                <img src="~/Upload/Asansor.jpg" class="card-img-top" alt="Image cap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                <rect width="100%" height="100%" fill="#868e96"></rect>
+                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+            </svg>
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Tüm Kategoriler</h5>
+        </div>
+    </div>
+
+
+    @foreach (var item in Model)
+    {
+
+        if (selectedCategory != null)
+        {
+            if (item.Id == int.Parse(selectedCategory.ToString()))
+            {
+                <div class="card" style="width: 18rem;">
+                    <a href="/Home/List/@item.Id" style="display: block; position: relative;">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <!-- Resim eklemek için image elemanı eklendi -->
+                            <img src="~/Upload/@item.Image" class="card-img-top" alt="Image cap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                            <rect width="100%" height="100%" fill="#868e96"></rect>
+                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                        </svg>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <a href="/Home/List/@item.Id" style="display: block; position: relative;">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <!-- Resim eklemek için image elemanı eklendi -->
+                            <img src="~/Upload/@item.Image" class="card-img-top" alt="Image cap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                            <rect width="100%" height="100%" fill="#868e96"></rect>
+                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                        </svg>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="card" style="width: 18rem;">
+                <a href="/Home/List/@item.Id" style="display: block; position: relative;">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <!-- Resim eklemek için image elemanı eklendi -->
+                        <img src="~/Upload/@item.Image" class="card-img-top" alt="Image cap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <rect width="100%" height="100%" fill="#868e96"></rect>
+                        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    
+                </div>
+            </div>
+        }
+
+
+    }
+
+</div>
+
+

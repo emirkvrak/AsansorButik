@@ -1,0 +1,118 @@
+﻿@using ETicaret.MvcWebUI.Entity;
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="product-details" class="container pb-5">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="~/Upload/@Model.Image" class="img-fluid rounded">
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+
+            <div class="row mt-1">
+                <div class="col-md-12">
+                    @if (Model.IsApproved)
+                    {
+                        <span class="badge badge-primary">Stokta</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Stokta yok</span>
+                    }
+
+                    <span class="product-number">#8913091</span>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3 ">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        <span class="badge badge-success ml-2">8.7</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4 id="product-price">@Model.Price TL</h4>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-12">
+
+
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+
+                        @Html.HiddenFor(i => i.Id)
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            Add to Cart
+                        </button>
+
+
+                     }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="bd-example bd-example-tabs">
+                <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-description-tab" data-toggle="pill" data-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">Açıklama</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-peyment-tab" data-toggle="pill" data-target="#pills-peyment" type="button" role="tab" aria-controls="pills-peyment" aria-selected="false">Ödeme Çeşitleri</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-reviews-tab" data-toggle="pill" data-target="#pills-reviews" type="button" role="tab" aria-controls="pills-reviews" aria-selected="false">Kargo Bilgileri</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+                        <p>@Model.DescriptionLong</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-peyment" role="tabpanel" aria-labelledby="pills-peyment-tab">
+                        <p>@Model.Payment</p>  
+                    </div>
+                    <div class="tab-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
+                        <p>@Model.ShippingInf</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
